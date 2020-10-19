@@ -32,7 +32,12 @@ Bicicleta.delete = function(aBiciId){
     }
 }
 
-Bicicleta.update = function(){}
+var bici1 = new Bicicleta(1, "Blanco", 2019, [6.217, -75.567]);
+var bici2 = new Bicicleta(2, "Negro", 2018, [6.246173, -75.568185]);
+
+Bicicleta.add(bici1);
+Bicicleta.add(bici2);
+
 
 
 
