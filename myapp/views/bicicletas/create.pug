@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  a(href='/bicicletas') Volver
+
+
+  h1 Crear Nueva Bicicleta
+
+
+
+  form(action='/bicicletas/create' method='post')
+    .form-group
+      label(for='inputID') ID
+      input#inputID.form-control(type='text'  name='ID' placeholder='Ingrese id')
+    .form-group
+      label(for='inputModelo') Modelo
+      input#inputModelo.form-control(type='text' name='Modelo' placeholder='Ingrese modelo')
+    .form-group
+      label(for='inputColor') Color
+      input#inputColor.form-control(type='text' name='Color' placeholder='Ingrese Color')
+    .form-row
+      .form-group.col-md-6
+        label(for='inputLatitud') Latitud
+        input#inputLatitud.form-control(type='text' name='Latitud' placeholder='Ingrese Latitud')
+      .form-group.col-md-6
+        label(for='inputLongitud') Longitud
+        input#inputLongitud.form-control(type='text' name='Longitud' placeholder='Ingrese Longitud')
+    button.btn.btn-primary(type='submit') Crear
