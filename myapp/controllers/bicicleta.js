@@ -28,12 +28,6 @@ exports.bicicleta_update_get = function(req , res){
 }
 
 exports.bicicleta_update_post = function(req , res){
-    var bici = Bicicleta.findById(req.params.id);
-    
-    bici.id = req.body.ID;
-    bici.color = req.body.Color;
-    bici.modelo = req.body.Modelo;
-    bici.ubicacion = [req.body.Latitud, req.body.Longitud];
-   
+    var bici = Bicicleta.update(req.params.id, req.body.Color, req.body.Modelo, req.body.Latitud, req.body.Longitud); 
     res.redirect('/bicicletas');
 }

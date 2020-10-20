@@ -23,6 +23,6 @@ block content
                 td 
                     a(href='bicicletas/'+bici.id+'/update') Editar
                 td
-                    form.inline(method='post' action='bicicletas/'+bici.id+'/delete')
+                    form.inline(method='delete' action='bicicletas/'+bici.id+'/delete')
                         input(type='hidden' name='ID' value= bici.id)
                         button.btn.btn-danger(type='submit') Eliminar
