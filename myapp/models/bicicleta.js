@@ -41,11 +41,12 @@ Bicicleta.update = function(newID, newColor, newModelo, newLatitud, newLongitud)
     bici.ubicacion = [newLatitud, newLongitud];
 }
 
+/*
 var bici1 = new Bicicleta(1, "Blanco", 2019, [6.217, -75.5987]);
 var bici2 = new Bicicleta(2, "Negro", 2018, [6.246173, -75.568185]);
 
 Bicicleta.add(bici1);
-Bicicleta.add(bici2);
+Bicicleta.add(bici2);*/
 
 
 
