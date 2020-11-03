@@ -9,7 +9,7 @@ No usé mi repositorio en Bitbucket dado que estoy familiarizado con github y co
 Para el uso de la API, el servidor recibe las peticiones de la siguiente manera:
 
 ## Listar 
-url: http://localhost:8000/api/bicicletas
+url: http://localhost:8000/api/bicicletas '/n'
 metodo: GET
 
 ## Crear
