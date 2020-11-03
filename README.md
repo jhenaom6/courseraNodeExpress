@@ -8,11 +8,13 @@ No usé mi repositorio en Bitbucket dado que estoy familiarizado con github y co
 
 Para el uso de la API, el servidor recibe las peticiones de la siguiente manera:
 
-## Listar
+## Listar 
 url: http://localhost:8000/api/bicicletas
+metodo: GET
 
 ## Crear
 url: http://localhost:8000/api/bicicletas/create
+metodo: POST
 body: {
 "code": 10, 
 "color": "Morado", 
@@ -23,6 +25,7 @@ body: {
 
 ## Actualizar
 url: http://localhost:8000/api/bicicletas/update
+metodo: POST
 body: {
 "code": 10, 
 "color": "Morado", 
@@ -33,6 +36,7 @@ body: {
 
 ## Eliminar
 url: http://localhost:8000/api/bicicletas/delete
+metodo: DELETE
 body: {
 "code": 10
 }
