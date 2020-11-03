@@ -1,4 +1,4 @@
-# courseraNodeExpress
+## courseraNodeExpress
 
 Este es el proyecto del curso de Coursera. Para la semana 1 se hace entrega del template en localHost en el puerto 8000 en donde se puede encontrar además el mapa con los dos punteros en la ciudad de Medellín.
 
@@ -8,10 +8,10 @@ No usé mi repositorio en Bitbucket dado que estoy familiarizado con github y co
 
 Para el uso de la API, el servidor recibe las peticiones de la siguiente manera:
 
-## Listar
+# Listar
 url: http://localhost:8000/api/bicicletas
 
-## Crear
+# Crear
 url: http://localhost:8000/api/bicicletas/create
 body: {
 "id": 10, 
@@ -21,7 +21,7 @@ body: {
 "longitud": -75
 }
 
-## Actualizar
+# Actualizar
 url: http://localhost:8000/api/bicicletas/update
 body: {
 "id": 10, 
@@ -31,7 +31,7 @@ body: {
 "longitud": -75
 }
 
-## Eliminar
+# Eliminar
 url: http://localhost:8000/api/bicicletas/delete
 body: {
 "id": 10
