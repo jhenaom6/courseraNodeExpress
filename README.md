@@ -13,33 +13,19 @@ Para el uso de la API, el servidor recibe las peticiones de la siguiente manera:
 * metodo: GET
 
 ## Crear
-url: http://localhost:8000/api/bicicletas/create
-metodo: POST
-body: {
-"code": 10, 
-"color": "Morado", 
-"modelo": 2021, 
-"latitud": -35, 
-"longitud": -75
-}
+* url: http://localhost:8000/api/bicicletas/create
+* metodo: POST
+* body: {"code": 10, "color": "Morado", "modelo": 2021, "latitud": -35, "longitud": -75}
 
 ## Actualizar
-url: http://localhost:8000/api/bicicletas/update
-metodo: POST
-body: {
-"code": 10, 
-"color": "Morado", 
-"modelo": 2021, 
-"latitud": -35, 
-"longitud": -75
-}
+* url: http://localhost:8000/api/bicicletas/update
+* metodo: POST
+* body: {"code": 10, "color": "Morado", "modelo": 2021, "latitud": -35, "longitud": -75}
 
 ## Eliminar
-url: http://localhost:8000/api/bicicletas/delete
-metodo: DELETE
-body: {
-"code": 10
-}
+* url: http://localhost:8000/api/bicicletas/delete
+* metodo: DELETE
+* body: {"code": 10}
 
 ### Nota
 El código comentado es la v1 en donde no se tenía base de datos de mongoDB. Solo se trabaja con una lista.
