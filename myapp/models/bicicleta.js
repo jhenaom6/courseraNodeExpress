@@ -47,7 +47,7 @@ bicicletaSchema.statics.update = function(newID, newColor, newModelo, newLatitud
             modelo: newModelo,
             ubicacion: [newLatitud, newLongitud]        
         }, cb);
-}
+};
 
 module.exports = mongoose.model('Bicicleta', bicicletaSchema);
 
