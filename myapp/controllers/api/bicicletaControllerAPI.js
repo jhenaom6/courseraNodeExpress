@@ -11,7 +11,7 @@ exports.bicicleta_list = function(req, res){
 
 exports.bicicleta_create = function(req, res){
     var bici = new Bicicleta({
-        code: req.body.id,
+        code: req.body.code,
         color: req.body.color, 
         modelo: req.body.modelo,
         ubicacion: [req.body.latitud, req.body.longitud]
@@ -33,7 +33,7 @@ exports.bicicleta_delete = function(req, res){
 };
 
 exports.bicicleta_update = function(req, res){
-    Bicicleta.update(req.body.id, req.body.color, req.body.modelo, req.body.latitud, req.body.longitud, function(error){
+    Bicicleta.update(req.body.code, req.body.color, req.body.modelo, req.body.latitud, req.body.longitud, function(error){
         if (error) res.status(400).send('Error al actualizar la bicicleta');
         res.status(200).send("Actualizado");
     });

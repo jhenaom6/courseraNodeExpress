@@ -42,7 +42,7 @@ describe('Bicicleta API', () =>{
 
     describe('GET Bicicletas /', () => {
         it('status 200', (done) => {
-            request.get('http://localhost:8000/api/Bicicletas', function(error, response, body){
+            request.get('http://localhost:8000/api/bicicletas', function(error, response, body){
                 var result = JSON.parse(body);
                 expect(response.statusCode).toBe(200);
                 expect(result.bicicletas.length).toBe(0);
@@ -54,7 +54,7 @@ describe('Bicicleta API', () =>{
     describe('POST Bicicletas /create', () => {
         it('status 200', (done) => {
             var headers = {'content-type' : 'application/json'};
-            var bici1 = '{"id": 10, "color": "Morado", "modelo": 2021, "latitud": -35, "longitud": -75}';
+            var bici1 = '{"code": 10, "color": "Morado", "modelo": 2021, "latitud": -35, "longitud": -75}';
 
             request.post({
                 headers: headers,
@@ -73,7 +73,7 @@ describe('Bicicleta API', () =>{
         it('status 200', (done) => {
 
             var headers = {'content-type' : 'application/json'};
-            var bici1 = '{"id": 10, "color": "Negro", "modelo": 2019, "latitud": 6.217, "longitud": -75.5987 }'; 
+            var bici1 = '{"code": 10, "color": "Negro", "modelo": 2019, "latitud": 6.217, "longitud": -75.5987 }'; 
 
             request.post({
                 headers: headers,
@@ -94,7 +94,7 @@ describe('Bicicleta API', () =>{
     describe('POST Bicicletas /delete', () => {
         it('status 200', (done) => {
             var headers = {'content-type' : 'application/json'};
-            var bici1 = '{"id": 10}';
+            var bici1 = '{"code": 10}';
 
             request.delete({
                 headers: headers,
