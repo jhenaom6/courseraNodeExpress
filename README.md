@@ -14,7 +14,7 @@ url: http://localhost:8000/api/bicicletas
 ## Crear
 url: http://localhost:8000/api/bicicletas/create
 body: {
-"id": 10, 
+"code": 10, 
 "color": "Morado", 
 "modelo": 2021, 
 "latitud": -35, 
@@ -24,7 +24,7 @@ body: {
 ## Actualizar
 url: http://localhost:8000/api/bicicletas/update
 body: {
-"id": 10, 
+"code": 10, 
 "color": "Morado", 
 "modelo": 2021, 
 "latitud": -35, 
@@ -34,7 +34,7 @@ body: {
 ## Eliminar
 url: http://localhost:8000/api/bicicletas/delete
 body: {
-"id": 10
+"code": 10
 }
 
 ### Nota
