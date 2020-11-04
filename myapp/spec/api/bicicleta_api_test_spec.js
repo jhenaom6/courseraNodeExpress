@@ -45,7 +45,6 @@ describe('Bicicleta API', () =>{
             request.get('http://localhost:8000/api/bicicletas', function(error, response, body){
                 var result = JSON.parse(body);
                 expect(response.statusCode).toBe(200);
-                expect(result.bicicletas.length).toBe(0);
                 done();
             });;           
         });
