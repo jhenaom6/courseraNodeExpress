@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  a(href='/usuarios') Volver
+
+
+  h1 Actualizar Usuario
+
+
+
+  form(action=`/usuarios/${usuario.id}/update` method='post')
+          
+    .form-group
+      label(for='inputNombre') Nombre: 
+      input#inputModelo.form-control(type='text' name='nombre' value= usuario.nombre class=errors.nombre ? 'is-invalid' : '')
+      if errors.nombre
+        small#nombreHelp.text-danger
+            = errors.nombre.message
+    .form-group
+      label(for='inputColor') Email
+      input#inputEmail.form-control-plaintext(type='text' readonly='' value=usuario.email)
+    button.btn.btn-primary(type='submit') Actualizar
