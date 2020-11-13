@@ -7,6 +7,7 @@ const passport = require('./config/passport.js');
 const session = require('express-session');
 const Usuario = require('./models/usuario');
 const Token = require('./models/token');
+const jwt = require('jsonwebtoken');
 
 
 //Actualizar Modulos de rutas a usar
@@ -16,11 +17,14 @@ var bicicletaRouter = require('./routes/bicicleta');
 var bicicletaAPIRouter = require('./routes/api/bicicleta');
 var usuarioAPIRouter = require('./routes/api/usuario');
 var tokenRouter = require('./routes/token');
+var authAPIRouter = require('./routes/api/auth');
 
 //Guardar sessiones ->
 const store = new session.MemoryStore;
 
 var app = express();
+
+app.set('secretKey','jwt_pwt_!!223344');
 app.use(session({
   cookie: { maxge: 240 * 60 * 60 * 100},
   store: store,
@@ -67,7 +71,7 @@ app.post('/login', function(req, res, next){
 
 app.get('/logout', function(req, res, next){
   req.logOut();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 app.get('/forgotPassword', function(req, res, next){
@@ -127,12 +131,26 @@ function loggedIn(req, res, next){
   }
 };
 
+function validarUsuario(req, res, next){
+  jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function(error, decoded){
+    if(error){
+      res.json({status: 'error', message: error.message, data: null});
+    }else{
+      req.body.userId = decoded.id;
+      console.log('jwt verify: '+ decoded);
+      next();
+    }
+  });
+};
+
 //Actualizar segun rutas creadas
 app.use('/', indexRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/bicicletas', loggedIn, bicicletaRouter);
-app.use('/api/bicicletas', bicicletaAPIRouter);
-app.use('/api/usuarios', usuarioAPIRouter);
+
+app.use('/api/auth', authAPIRouter);
+app.use('/api/bicicletas', validarUsuario, bicicletaAPIRouter);
+app.use('/api/usuarios',validarUsuario, usuarioAPIRouter);
 app.use('/token', tokenRouter);
 
 // catch 404 and forward to error handler
