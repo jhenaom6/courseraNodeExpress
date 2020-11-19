@@ -10,9 +10,10 @@ exports.usuarios_list = function(req, res){
 
 exports.usuario_create = function(req, res){
 
-    var usuario = new Usuario({ nombre: req.body.nombre });
+    var usuario = new Usuario({ nombre: req.body.nombre, email: req.body.email, password: req.body.password});
     usuario.save(function(error){
-        res.status(200).json( usuario );
+        if(error) return res.status(500).json( error );
+        return res.status(200).json( usuario );
     });
 };
 

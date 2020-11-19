@@ -1,3 +1,4 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -35,7 +36,10 @@ app.use(session({
 
 //Configuro MongoDB
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://localhost/red_bicicletas';
+
+//Para conectar a BD en Produccion se setea en Servidor
+var mongoDB = process.env.MONGO_URI;
+
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
@@ -64,7 +68,7 @@ app.post('/login', function(req, res, next){
     if(!usuario) return res.render('session/login', {info});
     req.logIn(usuario, function(error){
       if(error) return next(error);
-      return res.redirect('/');
+      return res.redirect('/index');
     });
   })(req, res, next);
 });
@@ -144,13 +148,13 @@ function validarUsuario(req, res, next){
 };
 
 //Actualizar segun rutas creadas
-app.use('/', indexRouter);
-app.use('/usuarios', usuariosRouter);
+app.use('/', loggedIn, indexRouter);
+app.use('/usuarios', loggedIn,usuariosRouter);
 app.use('/bicicletas', loggedIn, bicicletaRouter);
 
 app.use('/api/auth', authAPIRouter);
 app.use('/api/bicicletas', validarUsuario, bicicletaAPIRouter);
-app.use('/api/usuarios',validarUsuario, usuarioAPIRouter);
+app.use('/api/usuarios', validarUsuario, usuarioAPIRouter);
 app.use('/token', tokenRouter);
 
 // catch 404 and forward to error handler
