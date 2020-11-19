@@ -77,7 +77,7 @@ usuarioSchema.methods.enviar_email_bienvenida = function(cb){
         }
 
         const mailOptions = {
-            from: 'no-reply@redbicicletas.com',
+            from: 'juanes.henao98@gmial.com',
             to: emailDestination,
             subject: 'Verificacion de Cuenta',
             text: 'Hola, \n\n Por favor, para verificar su cuenta haga clic en el link \n\n' + 'http://localhost:8000' + '\/token/confirmation\/' + token.token + '\n'
@@ -100,7 +100,7 @@ usuarioSchema.methods.resetPassword = function(cb){
         }
 
         const mailOptions = {
-            from: 'no-reply@redbicicletas.com',
+            from: 'juanes.henao98@gmail.com',
             to: emailDestination,
             subject: 'Resetear Password/Contrasena',
             text: 'Hola, \n\n Para resetear su contraseña, por favor haga clic en el link \n\n' + 'http://localhost:8000' + '\/token/resetPassword\/' + token.token + '\n'
