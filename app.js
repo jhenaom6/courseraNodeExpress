@@ -148,8 +148,8 @@ function validarUsuario(req, res, next){
 };
 
 //Actualizar segun rutas creadas
-app.use('/', indexRouter);
-app.use('/usuarios', usuariosRouter);
+app.use('/', loggedIn, indexRouter);
+app.use('/usuarios', loggedIn,usuariosRouter);
 app.use('/bicicletas', loggedIn, bicicletaRouter);
 
 app.use('/api/auth', authAPIRouter);
