@@ -68,7 +68,7 @@ app.post('/login', function(req, res, next){
     if(!usuario) return res.render('session/login', {info});
     req.logIn(usuario, function(error){
       if(error) return next(error);
-      return res.redirect('/');
+      return res.redirect('/index');
     });
   })(req, res, next);
 });
