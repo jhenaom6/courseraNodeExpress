@@ -7,6 +7,6 @@ router.get('/create', usuarioController.create_get);
 router.post('/create', usuarioController.create_post);
 router.get('/:id/update', usuarioController.update_get);
 router.post('/:id/update', usuarioController.update_post);
-router.post('/:id/update', usuarioController.delete);
+router.post('/:id/delete', usuarioController.delete);
 
 module.exports = router;
