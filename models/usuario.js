@@ -80,7 +80,7 @@ usuarioSchema.methods.enviar_email_bienvenida = function(cb){
             from: 'juanes.henao98@gmail.com',
             to: emailDestination,
             subject: 'Verificacion de Cuenta',
-            text: 'Hola, \n\n Por favor, para verificar su cuenta haga clic en el link \n\n' + 'http://localhost' + '\/token/confirmation\/' + token.token + '\n'
+            text: 'Hola, \n\n Por favor, para verificar su cuenta haga clic en el link \n\n' + 'https://red-bicicleta-heroku.herokuapp.com' + '\/token/confirmation\/' + token.token + '\n'
         };
 
         mailer.sendMail(mailOptions, function(error){
