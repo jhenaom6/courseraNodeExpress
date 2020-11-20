@@ -75,7 +75,7 @@ usuarioSchema.methods.enviar_email_bienvenida = function(cb){
         if(error){
             return console.log(error.message);            
         }
-        const mailOptions;
+        const mailOptions = {};
         if(process.env.NODE_ENV === 'production'){
             mailOptions = {
                 from: 'juanes.henao98@gmail.com',
