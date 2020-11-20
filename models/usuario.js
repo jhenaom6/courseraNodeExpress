@@ -75,14 +75,22 @@ usuarioSchema.methods.enviar_email_bienvenida = function(cb){
         if(error){
             return console.log(error.message);            
         }
-
-        const mailOptions = {
-            from: 'juanes.henao98@gmail.com',
-            to: emailDestination,
-            subject: 'Verificacion de Cuenta',
-            text: 'Hola, \n\n Por favor, para verificar su cuenta haga clic en el link \n\n' + 'http://localhost:8000' + '\/token/confirmation\/' + token.token + '\n'
-        };
-
+        const mailOptions;
+        if(process.env.NODE_ENV === 'production'){
+            mailOptions = {
+                from: 'juanes.henao98@gmail.com',
+                to: emailDestination,
+                subject: 'Verificacion de Cuenta',
+                text: 'Hola, \n\n Por favor, para verificar su cuenta haga clic en el link \n\n' + 'https://red-bicicleta-heroku.herokuapp.com' + '\/token/confirmation\/' + token.token + '\n'
+            };
+        }else{
+            mailOptions = {
+                from: 'no-reply@ensayo.com',
+                to: emailDestination,
+                subject: 'Verificacion de Cuenta',
+                text: 'Hola, \n\n Por favor, para verificar su cuenta haga clic en el link \n\n' + 'http://localhost:8000' + '\/token/confirmation\/' + token.token + '\n'
+            };
+        }
         mailer.sendMail(mailOptions, function(error){
             if(error){return console.log(error.message);}
 
